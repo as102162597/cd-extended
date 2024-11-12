@@ -203,13 +203,13 @@ const char * Parser::getSepOptArgVal(const char * const argv[]) const {
 
 BehaviorBuilder * Parser::createBehaviorBuilders() const {
     return (new DisplayUsageBehaviorBuilder(optionalInfo, standardInfo))
-        ->setNext(new DisplayVersionBehaviorBuilder(optionalInfo, standardInfo))
-        ->setNext(new DisplayVersionBehaviorBuilder(optionalInfo, standardInfo))
-        ->setNext(new ListBehaviorBuilder(optionalInfo, standardInfo))
-        ->setNext(new ClearBehaviorBuilder(optionalInfo, standardInfo))
-        ->setNext(new OutputBehaviorBuilder(optionalInfo, standardInfo))
-        ->setNext(new InputBehaviorBuilder(optionalInfo, standardInfo))
-        ->setNext(new ListBehaviorBuilder(optionalInfo, standardInfo, true));
+        ->setLast(new DisplayVersionBehaviorBuilder(optionalInfo, standardInfo))
+        ->setLast(new DisplayVersionBehaviorBuilder(optionalInfo, standardInfo))
+        ->setLast(new ListBehaviorBuilder(optionalInfo, standardInfo))
+        ->setLast(new ClearBehaviorBuilder(optionalInfo, standardInfo))
+        ->setLast(new OutputBehaviorBuilder(optionalInfo, standardInfo))
+        ->setLast(new InputBehaviorBuilder(optionalInfo, standardInfo))
+        ->setLast(new ListBehaviorBuilder(optionalInfo, standardInfo, true));
 }
 
 Behavior * Parser::build(const BehaviorBuilder * builders) const {

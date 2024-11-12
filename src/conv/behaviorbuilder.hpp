@@ -15,7 +15,10 @@ public:
         { return isMatch() ? create() : (next == nullptr ? nullptr : next->build()); }
 
     BehaviorBuilder * setNext(BehaviorBuilder * b)
-        { if (next == nullptr) next = b; else next->setNext(b); return this; }
+        { next = b; return this; }
+
+    BehaviorBuilder * setLast(BehaviorBuilder * b)
+        { if (next == nullptr) setNext(b); else next->setLast(b); return this; }
 
 protected:
     virtual bool isMatch() const = 0;
