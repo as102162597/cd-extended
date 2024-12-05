@@ -26,7 +26,7 @@ if [ -f $CDEX_DIRCTL ] && [ -r $CDEX_DIRCTL ] && [ -x $CDEX_DIRCTL ]; then
                 if [ $CDEX_EXITSTAT -eq 0 ]; then
                     $CDEX_DIRCTL $CDEX_CTLMODE i $CDEX_HISTORY $CDEX_SOURCE $CDEX_DEST $@
                 fi
-            else
+            elif [ -n "$CDEX_OUTPUT" ]; then
                 echo "$CDEX_OUTPUT"
             fi
         fi
