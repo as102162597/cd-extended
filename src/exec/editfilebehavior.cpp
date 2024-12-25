@@ -129,7 +129,7 @@ void EditFileBehavior::saveFile() const {
     }
 
     file << currentIndex << std::endl;
-    for (const fp & footprint : footprints)
+    for (const auto & footprint : footprints)
         file << footprint.getIndex() << " " << footprint.str() << std::endl;
 
     file.close();
